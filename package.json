@@ -1,0 +1,43 @@
+{
+  "name": "dsh-session-archiver",
+  "version": "0.2.0",
+  "description": "DeepSeek Harness 会话管理插件：查看归档会话、取消归档、删除会话。一键安装、自动挂载、零配置（免审批）。",
+  "license": "MIT",
+  "type": "module",
+  "private": false,
+  "main": "./index.mjs",
+  "scripts": {
+    "test": "node test/pending-delete.test.mjs && node test/delete-safety.test.mjs && node test/client-compat.test.mjs",
+    "check": "node --check index.mjs && node --check pending-delete.mjs && node --check client.bundle.js && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clinlx/dsh-session-archiver.git"
+  },
+  "bugs": {
+    "url": "https://github.com/clinlx/dsh-session-archiver/issues"
+  },
+  "homepage": "https://github.com/clinlx/dsh-session-archiver#readme",
+  "files": [
+    "index.mjs",
+    "pending-delete.mjs",
+    "client.bundle.js",
+    "cordis.patch.yml"
+  ],
+  "exports": {
+    ".": "./index.mjs",
+    "./client": "./client.bundle.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

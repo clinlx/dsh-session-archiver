@@ -1,0 +1,9 @@
+# dsh-session-archiver 插件补丁层。
+# 由 `dsh plugin --profile <name> add dsh-session-archiver` 自动挂载：
+# 包声明了 dsh.bundle.patch，安装后即进入 profile 的 bundles 层，零手工配置。
+#
+# 行名（name）必须是包名本身：裸名从 profile 的 node_modules 解析，
+# 所以安装进 profile 后这一行即可被加载。
+- insert:
+    - id: session-archiver
+      name: 'dsh-session-archiver'
